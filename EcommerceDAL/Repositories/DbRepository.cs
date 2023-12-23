@@ -15,13 +15,11 @@ namespace EcommerceDAL.Repositories
         {
             return await _dbContext.Products.ToListAsync();
         }
-        public async Task<bool> AddProduct(Product product)
+        public async Task<bool> AddProducts(Product product)
         {
             await _dbContext.Products.AddAsync(product);
             await _dbContext.SaveChangesAsync();
             return true;
-
-
         }
         public async Task<bool> UpdateProduct(Product product)
         {
@@ -29,6 +27,44 @@ namespace EcommerceDAL.Repositories
             await _dbContext.SaveChangesAsync();
             return true;
         }
+        public async Task<bool> DeleteProduct(Product product)
+        {
+            product.IsDeleted= false;
+            _dbContext.Update(product);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+
+
+
+        public async Task<IEnumerable<Category>> FetchCategories()
+        {
+            return await _dbContext.Categories.ToListAsync();
+        }
+
+        public async Task<bool> AddCategories(Category category)
+        {
+            await _dbContext.Categories.AddAsync(category);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UpdateCategory(Category category)
+        {
+            _dbContext.Update(category);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+        public async Task<bool> DeletCategory(Category category)
+        {
+            category.IsDeleted = false;
+            _dbContext.Update(category);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+
+
+
     }
 }
 

@@ -11,7 +11,7 @@ namespace EcommerceDAL.Models
 
         //public List<string> Values = new List<string>();
         public string Values { get; set; }
-        public Product Product{ get; set; } = null!;
+     //   public Product Product{ get; set; } = null!;
         public bool IsDeleted { get; set; }
 
 

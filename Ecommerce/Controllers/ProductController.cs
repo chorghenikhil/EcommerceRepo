@@ -34,5 +34,28 @@ namespace Ecommerce.Controllers
         {
             return await _productService.GetProducts();
         }
+
+
+        [HttpPost]
+        [Route("AddProducts")]
+        public async Task<bool> Post([FromBody] Product product)
+        {
+            return await  _productService.AddProducts(product);
+        }
+
+        [HttpPost]
+        [Route("UpdateProducts")]
+        public async Task<bool> Update([FromBody] Product product)
+        {
+            return await _productService.UpdateProduct(product);
+        }
+
+        [HttpPost]
+        [Route("DeleteProducts")]
+        public async Task<bool> Delete([FromBody] Product product)
+        {
+            return await _productService.DeleteProduct(product);
+        }
+
     }
 }
