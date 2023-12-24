@@ -26,13 +26,13 @@ namespace EcommerceService.Services
 
         public async Task<bool> UpdateCategory(Category category)
         {
-            category.Id = Guid.NewGuid();
+          
             return await _dbRepository.UpdateCategory(category);
         }
 
         public async Task<bool> DeletCategory(Category category)
         {
-            category.Id = Guid.NewGuid();
+          
             return await _dbRepository.DeletCategory(category);
         }
 

@@ -25,13 +25,13 @@ namespace EcommerceService.Services
 
         public async Task<bool> UpdateProduct(Product product)
         {
-            product.Id = Guid.NewGuid();
+           
             return await _dbRepository.UpdateProduct(product);
         }
 
         public async Task<bool> DeleteProduct(Product product)
         {
-            product.Id = Guid.NewGuid();
+          
             return await _dbRepository.DeleteProduct(product);
         }
 
